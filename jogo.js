@@ -35,7 +35,9 @@ const elementos = {
     ]
 }
 
-const palavras = {
+const palavrasSalvas = localStorage.getItem('palavras');
+
+const palavras = palavrasSalvas ? JSON.parse(palavrasSalvas) : {
     facil: [{
             palavra: 'série',
             dica: 'Game Of Thrones não é a melhor...'
@@ -124,6 +126,7 @@ function cadastrarPalavra() {
     }
 
     palavras[dificuldadeSelecionada].push(novaPalavraCompleta)
+    localStorage.setItem('palavras', JSON.stringify(palavras));
     console.log(`palavras na dificuldade ${dificuldadeSelecionada}:`, palavras[dificuldadeSelecionada])
 
     elementos.campos.palavra.value = ''
