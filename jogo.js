@@ -44,6 +44,24 @@ const palavras = {
             palavra: 'ímpar',
             dica: 'Se não é par é...'
         }
+    ],
+    medio: [{
+            palavra: 'eclipse',
+            dica: 'Fenômeno astronômico'
+        },
+        {
+            palavra: 'abissal',
+            dica: 'Relacionado às profundezas do oceano'
+        }
+    ],
+    dificil: [{
+            palavra: 'cachoeira',
+            dica: 'Melhor que praia pro verão paranaense'
+        },
+        {
+            palavra: 'consertar',
+            dica: 'Reparar ou resolver um problema'
+        }
     ]
 }
 
@@ -231,4 +249,7 @@ function substituirCaractere(str, indice, novoCaractere) {
 
 elementos.botoes.reiniciar.addEventListener('click', () => novoJogo())
 elementos.botoes.voltar.addEventListener('click', () => voltarInicio())
+
 elementos.botoes.facil.addEventListener('click', () => iniciarJogo('facil'))
+elementos.botoes.medio.addEventListener('click', () => iniciarJogo('medio'))
+elementos.botoes.dificil.addEventListener('click', () => iniciarJogo('dificil'))
