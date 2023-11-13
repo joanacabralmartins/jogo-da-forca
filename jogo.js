@@ -100,17 +100,18 @@ function mostrarMensagem(vitoria) {
     jogo.emAndamento = false
 }
 
-/* function abrirTelaCadastroPalavra() {
-
+function abrirTelaCadastroPalavra() {
+    elementos.telaInicial.style.display = 'none';
+    elementos.telaCadastro.style.display = 'flex';
 }
 
-function voltarInicio() {
-
-}
-
-function cadastrarPalavra() {
+/*function cadastrarPalavra() {
 
 } */
+
+function voltarInicio() {
+    novoJogo()
+}
 
 function sortearPalavra() {
     const i = Math.floor(Math.random() * palavras[jogo.dificuldade].length)
@@ -253,3 +254,5 @@ elementos.botoes.voltar.addEventListener('click', () => voltarInicio())
 elementos.botoes.facil.addEventListener('click', () => iniciarJogo('facil'))
 elementos.botoes.medio.addEventListener('click', () => iniciarJogo('medio'))
 elementos.botoes.dificil.addEventListener('click', () => iniciarJogo('dificil'))
+
+elementos.botoes.cadastrar.addEventListener('click', () => abrirTelaCadastroPalavra())
