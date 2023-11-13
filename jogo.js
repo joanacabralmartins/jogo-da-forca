@@ -105,9 +105,33 @@ function abrirTelaCadastroPalavra() {
     elementos.telaCadastro.style.display = 'flex';
 }
 
-/*function cadastrarPalavra() {
+function cadastrarPalavra() {
+    const novaPalavra = elementos.campos.palavra.value.trim();
+    const novaDica = elementos.campos.dica.value.trim();
 
-} */
+    let dificuldadeSelecionada;
+    if (elementos.campos.dificuldade.facil.checked) {
+        dificuldadeSelecionada = 'facil';
+    } else if (elementos.campos.dificuldade.medio.checked) {
+        dificuldadeSelecionada = 'medio';
+    } else if (elementos.campos.dificuldade.dificil.checked) {
+        dificuldadeSelecionada = 'dificil';
+    } 
+
+    const novaPalavraCompleta = {
+        palavra: novaPalavra,
+        dica: novaDica
+    }
+
+    palavras[dificuldadeSelecionada].push(novaPalavraCompleta)
+    console.log(`palavras na dificuldade ${dificuldadeSelecionada}:`, palavras[dificuldadeSelecionada])
+
+    elementos.campos.palavra.value = ''
+    elementos.campos.dica.value = ''
+
+    elementos.telaCadastro.style.display = 'none';
+    elementos.telaInicial.style.display = 'flex';
+} 
 
 function voltarInicio() {
     novoJogo()
@@ -230,6 +254,7 @@ function selecionarLetra(letra) {
 
 function iniciarJogo(dificuldade) {
     jogo.dificuldade = dificuldade
+    console.log(`palavras na dificuldade ${dificuldade}:`, palavras[dificuldade])
 
     elementos.telaInicial.style.display = 'none'
     elementos.telaJogo.style.display = 'flex'
@@ -256,3 +281,4 @@ elementos.botoes.medio.addEventListener('click', () => iniciarJogo('medio'))
 elementos.botoes.dificil.addEventListener('click', () => iniciarJogo('dificil'))
 
 elementos.botoes.cadastrar.addEventListener('click', () => abrirTelaCadastroPalavra())
+elementos.botoes.realizarCadastro.addEventListener('click', () => cadastrarPalavra())
